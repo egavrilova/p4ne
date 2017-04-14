@@ -4,9 +4,8 @@ result = getCmd(SnmpEngine(), CommunityData('public', mpModel=0), UdpTransportTa
                 ContextData(),
                 ObjectType(ObjectIdentity('SNMPv2-MIB', 'sysDescr', 0)))
 for i in result:
-    print(i[3])
-    for j in i[3]:
-        print (j)
+      for j in i[3]:
+            print (j)
 
 result2 = nextCmd(SnmpEngine(), CommunityData('public', mpModel=0), UdpTransportTarget(('10.31.70.107', 161)),
                 ContextData(),
@@ -14,8 +13,7 @@ result2 = nextCmd(SnmpEngine(), CommunityData('public', mpModel=0), UdpTransport
                  lexicographicMode=False)
 
 for i in result2:
-    print(i[3])
-    for j in i[3]:
-        print (j)
+        for j in i[3]:
+            print (j)
 
 
