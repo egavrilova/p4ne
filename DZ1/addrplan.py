@@ -54,7 +54,7 @@ Megalist=list(Mega_set)
 #for i in sorted(Megalist,key=Sortfunc):
 #    print(i)
 
-with open ('C:\\work\\Python\\Addrplan1.xls','w') as f:
+with open ('C:\\work\\Python\\Addrplan1.txt','w') as f:
     f.writelines('Network/Mask \t Gateway \t Description \n')
     for i in sorted(Megalist, key=Sortfunc):
         l=str(i[0])+'\t'+str(i[1])+'\t'+str(i[2])+'\n'
