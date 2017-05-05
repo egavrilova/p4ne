@@ -1,7 +1,6 @@
 import glob
 import ipaddress
 import re
-from openpyxl import Workbook
 
 Mega_set=set()  #итоговое множество кортежей вида (Сеть/Маска, Шлюз, Описание)
 IP_set=set()  #множество кортежей (Сеть/Маска, IPaddr), полученных из команды 'ip address'
@@ -55,12 +54,8 @@ Megalist=list(Mega_set)
 #for i in sorted(Megalist,key=Sortfunc):
 #    print(i)
 
-wb=Workbook()
-ws=wb.active
-ws.title='Address Plan'
-ws['A1']='Network/Mask'
-ws['B1']='Gateway'
-ws['C1']='Description'
-for i in sorted(Megalist, key=Sortfunc):
-    ws.append(list(map(lambda x: str(x),i)))
-wb.save('C:\\work\\Python\\Addrplan.xlsx')
+with open ('C:\\work\\Python\\Addrplan1.txt','w') as f:
+    f.writelines('Network/Mask \t Gateway \t Description \n')
+    for i in sorted(Megalist, key=Sortfunc):
+        l=str(i[0])+'\t'+str(i[1])+'\t'+str(i[2])+'\n'
+        f.writelines(l)
